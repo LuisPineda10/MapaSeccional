@@ -1,142 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mapa Electoral México</title>
+<meta charset="UTF-8">
 
-    <!-- LEAFLET -->
-    <link rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-    </script>
+<title>Mapa Electoral México</title>
 
-    <style>
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+<link rel="stylesheet"
+href="css/estilos.css">
 
-        #barra {
-            height: 60px;
-            background: #222;
-            color: white;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            gap: 10px;
-        }
-
-        #barra h2 {
-            margin-right: 30px;
-        }
-
-        button {
-            padding: 10px 15px;
-            cursor: pointer;
-            border: 0;
-            border-radius: 5px;
-        }
-
-        #map {
-            height: calc(100vh - 60px);
-            width: 100%;
-        }
-
-    </style>
 </head>
 
 <body>
 
-<div id="barra">
+<header>
 
-    <h2>Mapa Electoral México</h2>
+<div class="titulo">
+Mapa Electoral México
+</div>
 
-    <button onclick="mostrarComites()">
-        Comités
-    </button>
+<div class="botones">
 
-    <button onclick="mostrarListaNominal()">
-        Lista Nominal
-    </button>
+<button id="btnComites">
+Comités
+</button>
 
-    <button onclick="mostrarSecciones()">
-        Secciones
-    </button>
+<button id="btnLista">
+Lista Nominal
+</button>
 
-    <button onclick="mostrarDistritos()">
-        Distritos
-    </button>
+<button id="btnSecciones">
+Secciones
+</button>
+
+<button id="btnDistritos">
+Distritos
+</button>
 
 </div>
 
+</header>
+
 <div id="map"></div>
 
-<script>
-
-    // Crear mapa
-    const map = L.map('map').setView(
-        [23.6345, -102.5528],
-        5
-    );
-
-    // OpenStreetMap
-    L.tileLayer(
-        'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-        {
-            maxZoom: 19,
-            attribution:
-            '&copy; OpenStreetMap contributors'
-        }
-    ).addTo(map);
-
-
-    // PRUEBA: Ciudad de México
-
-    const marcador = L.marker(
-        [19.4326, -99.1332]
-    ).addTo(map);
-
-    marcador.bindPopup(`
-        <b>Ciudad de México</b><br>
-        Lista nominal: Próximamente<br>
-        Secciones: Próximamente<br>
-        Comités: Próximamente
-    `);
-
-
-    function mostrarComites() {
-
-        alert("Aquí mostraremos los Comités Seccionales");
-
-    }
-
-
-    function mostrarListaNominal() {
-
-        alert("Aquí mostraremos la Lista Nominal");
-
-    }
-
-
-    function mostrarSecciones() {
-
-        alert("Aquí mostraremos las Secciones Electorales");
-
-    }
-
-
-    function mostrarDistritos() {
-
-        alert("Aquí mostraremos los Distritos Federales");
-
-    }
-
+<script
+src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 </script>
+
+<script src="js/mapa.js"></script>
 
 </body>
 </html>
